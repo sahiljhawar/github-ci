@@ -1,0 +1,14 @@
+name: Python CI Check
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+
+jobs:
+  check-ci:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run CI check
+        run: python -c "import os; print(os.environ.get('CI') == 'true')"
